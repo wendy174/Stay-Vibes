@@ -1,8 +1,71 @@
 import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
+import React, {useState} from "react"
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Favorites from "./Favorites";
+import Listing from "./Listing";
 
-export default function Card({ cityState, date, price,  bedrooms, bathrooms, img }) {
+export default function Card({ 
+    cityState, 
+    date, 
+    price,  
+    bedrooms, 
+    bathrooms, 
+    img, 
+    favorites,
+    handleClick ,
+    setFavorites}) {
+    
+    const [like, setLike] = useState(false)
+    const [show, setShow] = useState(false)
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+       
+    function handleClick() {
+        setLike((prev) => !prev);
+      }
+
+      function handleAddToFavorites() {
+        const isAlreadyFavorite = favorites.some((f) => f.cityState === cityState);
+        if (!isAlreadyFavorite) {
+          const newFavorite = {
+            cityState: cityState,
+            date: date,
+            price: price,
+            bedrooms: bedrooms,
+            bathrooms: bathrooms,
+            img: img,
+          };
+          setFavorites([...favorites, newFavorite]);
+        }
+        setLike((prevState) => !prevState);
+      }
+    
+        
   return (
-    <Box w="full">
+    <div id='card'>
+    <Listing 
+   handleShow={handleShow}
+   img={img}
+   cityState={cityState}
+   price={price}
+   bedrooms={bedrooms}
+   bathrooms={bathrooms}
+   date={date}
+
+    />
+    <Box w="full" >
+    <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title> Listing details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
       <Image
         h="337px"
         w="full"
@@ -13,7 +76,8 @@ export default function Card({ cityState, date, price,  bedrooms, bathrooms, img
         fontSize="16px"
         objectFit="cover"
       />
-      <Stack spacing="0">
+        
+      <Stack spacing="0" >
         <Flex justifyContent="space-between">
           <Heading
             as="h2"
@@ -42,7 +106,19 @@ export default function Card({ cityState, date, price,  bedrooms, bathrooms, img
             {date}
           </Text>
         </Flex>
+          <div className='empty' onClick={handleClick}>
+          {like? '♥':'♡'}
+          </div>
       </Stack>
+      </Modal.Body>
+        <Modal.Footer>
+        <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
+
+          <Button variant="primary">Reviews</Button>
+          <Button variant="secondary" onClick={handleClose}>Close</Button>
+        </Modal.Footer>
+    </Modal>
     </Box>
+    </div>
   );
 }

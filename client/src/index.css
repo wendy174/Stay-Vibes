@@ -11,7 +11,7 @@
 
 .bm-burger-bars {
   background: rgb(23, 91, 54);
-  z-index: 11;
+  z-index: 10;
 }
 .bm-cross {
   background: #000000;
@@ -31,8 +31,39 @@
   width: 750px
 }
 
+
+.header {
+  padding:10;
+}
+.empty-heart {
+  position:absolute;
+  top:0px;
+  right:10px;
+ font-size:30px;
+ cursor: pointer;
+} 
+.empty {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:35px;
+}
+#card {
+  position:relative;
+}
 .stay-vibes {
   font-size: 50px;
   align-content: center;
   padding: 10px
+}
+
+#root > .css-zv3073 {
+  padding: 0px;
+  margin: 0;
+}
+.logo {
+  width:250px;
+  align-items: center;
+  cursor:pointer;
+  margin-left:20px;
 }
