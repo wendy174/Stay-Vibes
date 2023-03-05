@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-rescue_from Active::RecordNotFound, with: :host_not_found
+rescue_from ActiveRecord::RecordNotFound, with: :host_not_found
     def index 
         hosts = Host.all 
         render json: hosts, status: :ok
@@ -10,12 +10,12 @@ rescue_from Active::RecordNotFound, with: :host_not_found
     end
 
     def create
-        render json: Host.create(host_params), status: :created  
+        render json: Host.create!(host_params), status: :created  
     end
 
     def update
         hosts = Host.find(params[:id])
-        render json = Host.update(host_params), status: :ok
+        render json = Host.update!(host_params), status: :ok
     end
 
 
