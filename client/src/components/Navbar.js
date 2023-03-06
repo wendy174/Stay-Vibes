@@ -14,14 +14,14 @@ export default function NavBar() {
 
 return (
   <div>
-    <Menu right>
+    <Menu right className='header'>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/">Profile</NavLink>
             <NavLink to="/">All Homes</NavLink>
             <NavLink to="/">Add Home</NavLink>
             <NavLink to="/">Log Out</NavLink>
     </Menu>
-    <h1 onClick={handleOpen}>StayVibes</h1>
+    <h1 onClick={handleOpen}>StayVibasdasdes</h1>
   </div>
 )
 }
