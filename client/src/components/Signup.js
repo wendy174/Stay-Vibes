@@ -12,10 +12,11 @@ import {
   MDBCheckbox 
 } 
 from 'mdb-react-ui-kit';
+import './Signup.css'
 
 function Signup() {
   return (
-    <MDBContainer fluid>
+    <MDBContainer fluid className='signup-page'>
 
       <MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
         <MDBCardBody>
