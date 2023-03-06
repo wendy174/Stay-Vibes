@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { slide as Menu } from 'react-burger-menu'
+import { stack as Menu } from 'react-burger-menu'
 import { NavLink } from 'react-router-dom';
 import "../index.css"
 
@@ -13,7 +13,7 @@ export default function NavBar() {
   }
 
 return (
-  <>
+  <div>
     <Menu right>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/">Profile</NavLink>
@@ -21,7 +21,7 @@ return (
             <NavLink to="/">Add Home</NavLink>
             <NavLink to="/">Log Out</NavLink>
     </Menu>
-    <h1 onclick={handleOpen}id="logo">Stay Vibes Logo</h1>
-  </>
+    <h1 onclick={handleOpen}>StayVibes</h1>
+  </div>
 )
 }
