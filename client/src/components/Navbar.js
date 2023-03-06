@@ -1,21 +1,3 @@
-// import React from "react";
-// import Search from "./Search";
-// import { NavLink } from 'react-router-dom'
-
-// export default function Navbar(){
-//     return(
-//         <div>
-//             <a href="/">Stay Vibes</a>
-//                     <a href="/">All Homes</a>
-//                     <a href="/">Add Home</a>
-//                     <a href="/">My Profile</a>
-//                     <NavLink to="/">Home</NavLink>
-//                     <a href="/">Logout</a>
-//                 <Search/>
-//         </div>
-//     )
-// }
-
 import { React, useState } from 'react'
 import { slide as Menu } from 'react-burger-menu'
 import { NavLink } from 'react-router-dom';
@@ -39,7 +21,7 @@ return (
             <NavLink to="/">Add Home</NavLink>
             <NavLink to="/">Log Out</NavLink>
     </Menu>
-    <h1 id="logo">Stay Vibes Logo</h1>
+    <h1 onclick={handleOpen}id="logo">Stay Vibes Logo</h1>
   </>
 )
 }
