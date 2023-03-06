@@ -7,15 +7,16 @@ import Layout from './Layout'
 import theme from './theme'
 import { ChakraProvider, ScaleFade } from "@chakra-ui/react"
 
-
+import Navbar from "./components/Navbar";
 
 function App() {
- 
 
   return (
+
     <ChakraProvider theme={theme}>
      <Layout>
        <ScaleFade  initialScale={0.9} in="true">
+        <Navbar/>
          <Routes>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login/>}/>
