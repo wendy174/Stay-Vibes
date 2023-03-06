@@ -21,7 +21,7 @@ return (
             <NavLink to="/">Add Home</NavLink>
             <NavLink to="/">Log Out</NavLink>
     </Menu>
-    <h1 onclick={handleOpen}>StayVibes</h1>
+    <h1 onClick={handleOpen}>StayVibes</h1>
   </div>
 )
 }
