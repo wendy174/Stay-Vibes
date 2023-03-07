@@ -31,6 +31,20 @@
   width: 750px
 }
 
+
+.header {
+  padding:10
+}
+.empty-heart {
+  position:absolute;
+  top:0px;
+  right:10px;
+ font-size:30px;
+ cursor: pointer;
+} 
+#card {
+  position:relative;
+}
 .stay-vibes {
   font-size: 50px;
   align-content: center;
@@ -40,4 +54,6 @@
 #root > .css-zv3073 {
   padding: 0px;
   margin: 0;
+
+
 }
