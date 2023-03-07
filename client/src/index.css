@@ -11,7 +11,7 @@
 
 .bm-burger-bars {
   background: rgb(23, 91, 54);
-  z-index: 11;
+  z-index: 10;
 }
 .bm-cross {
   background: #000000;
@@ -35,4 +35,9 @@
   font-size: 50px;
   align-content: center;
   padding: 10px
+}
+
+#root > .css-zv3073 {
+  padding: 0px;
+  margin: 0;
 }
