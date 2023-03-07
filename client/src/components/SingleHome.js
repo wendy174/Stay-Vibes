@@ -1,8 +1,19 @@
 import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
+import React, {useState} from "react"
 
 export default function Card({ cityState, date, price,  bedrooms, bathrooms, img }) {
+
+    const [like, setLike] = useState(false)
+ 
+    function handleClick() {
+    setLike(prev =>!prev)
+    }
+
+
   return (
-    <Box w="full">
+    <div id='card'>
+    <Box w="full" >
+        
       <Image
         h="337px"
         w="full"
@@ -13,7 +24,7 @@ export default function Card({ cityState, date, price,  bedrooms, bathrooms, img
         fontSize="16px"
         objectFit="cover"
       />
-      <Stack spacing="0">
+      <Stack spacing="0" >
         <Flex justifyContent="space-between">
           <Heading
             as="h2"
@@ -42,7 +53,11 @@ export default function Card({ cityState, date, price,  bedrooms, bathrooms, img
             {date}
           </Text>
         </Flex>
+          <div className='empty-heart' onClick={handleClick}>
+          {like? '♥':'♡'}
+          </div>
       </Stack>
     </Box>
+    </div>
   );
 }

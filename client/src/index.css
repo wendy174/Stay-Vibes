@@ -33,3 +33,13 @@
 .header {
   padding:10
 }
+.empty-heart {
+  position:absolute;
+  top:0px;
+  right:10px;
+ font-size:30px;
+ cursor: pointer;
+} 
+#card {
+  position:relative;
+}
