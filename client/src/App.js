@@ -6,6 +6,7 @@ import Signup from './components/Signup'
 import Layout from './Layout'
 import theme from './theme'
 import { ChakraProvider, ScaleFade } from "@chakra-ui/react"
+import Favorites from './components/Favorites'
 
 import Navbar from "./components/Navbar";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<HomeList/>}/>
+        <Route path='/favorites' element={<Favorites/>}/>
       </Routes>
        </ScaleFade>
      </Layout>
