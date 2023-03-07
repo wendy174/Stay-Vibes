@@ -33,7 +33,7 @@
 
 
 .header {
-  padding:10
+  padding:10;
 }
 .empty-heart {
   position:absolute;
@@ -42,6 +42,12 @@
  font-size:30px;
  cursor: pointer;
 } 
+.empty {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:35px;
+}
 #card {
   position:relative;
 }
@@ -54,6 +60,10 @@
 #root > .css-zv3073 {
   padding: 0px;
   margin: 0;
-
-
+}
+.logo {
+  width:250px;
+  align-items: center;
+  cursor:pointer;
+  margin-left:20px;
 }
