@@ -4,7 +4,6 @@ require 'faker'
 puts "Seeding data..."
 Faker::Config.locale = :en
 # listings 
-
 Listing.destroy_all
 User.destroy_all
 Host.destroy_all
