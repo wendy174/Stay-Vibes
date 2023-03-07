@@ -11,23 +11,22 @@ import Favorites from './components/Favorites'
 import Navbar from "./components/Navbar";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
 
   return (
-
     <ChakraProvider theme={theme}>
-     <Layout>
-       <ScaleFade  initialScale={0.9} in="true">
-        <Navbar/>
-         <Routes>
-        <Route path='/signup' element={<Signup />}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/' element={<HomeList/>}/>
-        <Route path='/favorites' element={<Favorites/>}/>
-      </Routes>
-       </ScaleFade>
-     </Layout>
-   </ChakraProvider>
-
+      <Layout>
+        <ScaleFade initialScale={0.9} in="true">
+          <Navbar />
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<HomeList favorites={favorites} setFavorites={setFavorites}/>} />
+            <Route path="/favorites" element={<Favorites favorites={favorites} setFavorites={setFavorites} />} />
+          </Routes>
+        </ScaleFade>
+      </Layout>
+    </ChakraProvider>
   );
 }
 
