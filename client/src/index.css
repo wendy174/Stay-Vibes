@@ -18,18 +18,21 @@
 }
 
 
-/* Color/shape of burger icon bars on hover*/
+
 .bm-burger-bars-hover {
   background: #0aac50;
 }
 
-/* General sidebar styles */
+
 .bm-menu {
   background: #0aac50;
   padding: 1.5em 1em 0;
   font-size: 1.15em;
+  width: 750px
 }
 
-.header {
-  padding:10
+.stay-vibes {
+  font-size: 50px;
+  align-content: center;
+  padding: 10px
 }
