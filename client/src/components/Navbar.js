@@ -16,12 +16,14 @@ export default function NavBar() {
 return (
   <div className='header'>
      <Search/>
-    <Menu right pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }> 
+    <Menu right > 
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/">Profile</NavLink>
-        <NavLink to="/">All Homes</NavLink>
-        <NavLink to="/">Add Home</NavLink>
-        <NavLink to="/">Log Out</NavLink>
+        <NavLink to="/me">Profile</NavLink>
+        <NavLink to="/favorites">Favorites</NavLink>
+        <NavLink to="/listings">All Homes</NavLink>
+        <NavLink to="/addhome">Add Home</NavLink>
+        <NavLink to="/login">Log Out</NavLink>
+        
     </Menu>
     <h1 className='stay-vibes' onClick={handleOpen}>Stay Vibes</h1>
    
