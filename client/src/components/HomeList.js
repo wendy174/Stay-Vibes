@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
-import { Heading, SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import SingleHome from './SingleHome'
+
 import Favorites from './Favorites'
+import Search from './Search';
+
 
 const data = [
   {
@@ -76,13 +78,13 @@ const data = [
     price: "213",
     img: require('./images/home1.avif')
   },
-  //more data objects below 
 ]
 
-export default function Home({ favorites, setFavorites}) {
+export default function Home({ favorites, setFavorites,}) {
 
   return (
     <div>
+      <Search/>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">
         {data.map((house, i) => (
           <SingleHome

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    rescue_from Active::RecordNotFound, with: :user_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
     def index 
         users = User.all 
@@ -16,12 +16,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        render json: User.create(user_params), status: :created  
+        render json: User.create!(user_params), status: :created  
     end
 
     def update
         users = User.find(params[:id])
-        render json = users.update(user_params), status: :ok
+        render json = users.update!(user_params), status: :ok
     end
 
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 private 
 
     def user_params
-        params.permit(:description, :price, :city, :state, :num_bedrooms, :num_bathrooms, :image, :host_id)
+        params.permit(:name, :user_name, :email)
     end
     
     def user_not_found

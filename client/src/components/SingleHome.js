@@ -2,8 +2,8 @@ import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
 import React, {useState} from "react"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Favorites from "./Favorites";
 import Listing from "./Listing";
+import Search from "./Search";
 
 export default function Card({ 
     cityState, 
@@ -18,9 +18,11 @@ export default function Card({
     
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
+    const [isReviewOpen, setIsReviewOpen] = useState(false)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
        
     function handleClick() {
         setLike((prev) => !prev);
@@ -41,9 +43,15 @@ export default function Card({
         }
         setLike((prevState) => !prevState);
       }
+
+      const viewReviews = () => {
+        console.log("Added!")
+      }
     
         
   return (
+<>
+  
     <div id='card'>
     <Listing 
    handleShow={handleShow}
@@ -114,11 +122,12 @@ export default function Card({
         <Modal.Footer>
         <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
 
-          <Button variant="primary">Reviews</Button>
+          <Button onClick={viewReviews} variant="primary">Reviews</Button>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
     </Modal>
     </Box>
     </div>
+    </>
   );
 }
