@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users
 
 
-  resources :listings, only: [:index]
+  resources :listings, only: [:index, :show]
 
 end
