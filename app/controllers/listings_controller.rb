@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :listing_not_found
 
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     before_action :set_access_control_headers
 
     def index 
@@ -38,8 +38,11 @@ class ListingsController < ApplicationController
         params.permit(:description, :price, :city, :state, :num_bedrooms, :num_bathrooms, :image, :host_id)
     end
     
-    def listing_not_found
-        render json: { error: "Listing not found"}, status: :not_found
+    # def listing_not_found
+    #     render json: { error: "Listing not found"}, status: :not_found
+    # end
+    def render_not_found_response
+        render json: { error: "Listing Not found" }, status: :not_found
     end
 
     def set_access_control_headers
