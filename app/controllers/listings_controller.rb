@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    rescue_from Active::RecordNotFound, with: :listing_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :listing_not_found
     def index 
         listings = Listing.all 
         render json: listings

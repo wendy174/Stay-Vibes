@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    rescue_from Active::RecordNotFound, with: :user_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
     def index 
         users = User.all 

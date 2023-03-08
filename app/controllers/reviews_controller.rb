@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    rescue_from Active::RecordNotFound, with: :review_not_found
+    rescue_from ActiveRecord::RecordNotFound, with: :review_not_found
     def index 
         reviews = Review.all 
         render json: reviews
