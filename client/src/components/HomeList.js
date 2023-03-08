@@ -1,84 +1,21 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import SingleHome from './SingleHome'
 import Search from './Search';
+import React, {useState, useEffect} from 'react';
 
 
-const data = [
-  {
-    cityState: "Tampa, FL",
-    bedrooms: "3",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home2.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-]
 
 export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch}) {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(()=> {
+    fetch("http://localhost:3000/reviews")
+    .then(r => r.json())
+    .then(data => {
+      setReviews(data)
+    })
+  }, [])
+
 
   return (
     <div>
@@ -96,6 +33,7 @@ export default function Home({ favorites, setFavorites,homeList, setHomeList, ch
             description={house.description}
             favorites={favorites}
             setFavorites={setFavorites}
+            reviews={reviews}
           />
         ))}
       </SimpleGrid>

@@ -17,7 +17,6 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearch] = useState("")
 
-
   const changeSearch = (value) => {
     setSearch(value)
   }

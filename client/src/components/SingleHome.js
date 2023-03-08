@@ -15,7 +15,8 @@ export default function Card({
     favorites,
     handleClick ,
     setFavorites,
-    description}) {
+    description,
+    reviews}) {
     
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
@@ -49,7 +50,8 @@ export default function Card({
         console.log("Added!")
       }
     
-        
+        const fileteredReviews = reviews.map(rev => (rev.comment))
+  console.log(fileteredReviews)
   return (
 <>
   
@@ -120,6 +122,9 @@ export default function Card({
           </div>
           <Text as="span" color="gray.50">
             {description}
+          </Text>
+          <Text as="span" color="gray.50">
+          {fileteredReviews.filter(review => review)}
           </Text>
       </Stack>
       </Modal.Body>
