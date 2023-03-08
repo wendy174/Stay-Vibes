@@ -11,27 +11,48 @@ import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState([]);
+  const [user, setUser] = useState([]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/login', {
+      fetch('/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email: email, password: password }),
-      });
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+      })
+      .then(res => {
+      if(res.ok){
+        res.json().then(setUser)
+      } else {
+        //Display errors
+        res.json().then(data => setErrors(data.errors))
+      }
+    }) 
+      
+  }
+    //   .then(response => response.json())
+    //   .then((data) => {
+    //     if (data.errors) {
+    //       setErrors(data.errors);
+    //     } else {
+    //       setUser(data);
+    //     }
+    // } )  }
+
+
+  return (
 
   
-  return (
     <div className="login-page">
+
+
+    errors.map((error) => {
+       return <p>{error}</p>
+    })
+
       <MDBContainer fluid className="p-3 my-5 h-custom login-form">
         <MDBRow>
           <MDBCol col="10" md="6">
@@ -73,6 +94,7 @@ function Login() {
                 </p>
               </div>
             </form>
+   
           </MDBCol>
         </MDBRow>
       </MDBContainer>
