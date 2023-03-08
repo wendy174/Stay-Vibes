@@ -2,7 +2,6 @@ import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
 import React, {useState} from "react"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Favorites from "./Favorites";
 import Listing from "./Listing";
 import Search from "./Search";
 
