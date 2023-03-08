@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
-    # rescue_from Active::RecordNotFound, with: :listing_not_found
+
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    before_action :set_access_control_headers
+
     def index 
         listings = Listing.all 
         render json: listings
@@ -41,6 +43,12 @@ class ListingsController < ApplicationController
     # end
     def render_not_found_response
         render json: { error: "Listing Not found" }, status: :not_found
+    end
+
+    def set_access_control_headers
+        headers['Access-Control-Allow-Origin'] = 'http://localhost:4000'
+        headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+        headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
     end
 
 end

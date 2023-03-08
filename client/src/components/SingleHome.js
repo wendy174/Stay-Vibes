@@ -14,7 +14,8 @@ export default function Card({
     img, 
     favorites,
     handleClick ,
-    setFavorites}) {
+    setFavorites,
+    description}) {
     
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
@@ -117,6 +118,9 @@ export default function Card({
           <div className='empty' onClick={handleClick}>
           {like? '♥':'♡'}
           </div>
+          <Text as="span" color="gray.50">
+            {description}
+          </Text>
       </Stack>
       </Modal.Body>
         <Modal.Footer>

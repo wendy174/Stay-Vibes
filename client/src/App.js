@@ -30,9 +30,9 @@ function App() {
     })
   }, [])
 
-  console.log(homeList)
 
-  // const filteredHomes = homeList.filter(home => home.city.toLowerCase().includes(searchTerm.toLowerCase()))
+
+  const filteredHomes = homeList.filter(home => home.city.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
     <ChakraProvider theme={theme}>
@@ -47,7 +47,8 @@ function App() {
             setFavorites={setFavorites}  
             searchTerm={searchTerm} 
             changeSearch={changeSearch}
-            homeList={homeList}
+            homeList={filteredHomes}
+            setHomeList={setHomeList}
             />} />
             <Route path="/favorites" element={<Favorites 
             favorites={favorites} 
