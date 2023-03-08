@@ -17,6 +17,12 @@ export default function Search({searchTerm, changeSearch}){
           <Form.Control
             aria-label="Default"
             aria-describedby="inputGroup-sizing-default"
+            value={searchTerm}
+            type="text"
+            placeholder='Looking for a Home?'
+            onChange={handleChange}
           />
         </InputGroup>
-    )}
+
+    )
+}

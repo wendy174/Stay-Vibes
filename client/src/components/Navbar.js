@@ -22,7 +22,7 @@ return (
     <div onClick={handleClick}>
       <img className='logo' src={Logo} alt='logo' onClick={handleOpen}/>
     </div>
-     <Search/>
+
     <Menu right > 
         <NavLink to="/">Home</NavLink>
         <NavLink to="/me">Profile</NavLink>
@@ -30,7 +30,7 @@ return (
         <NavLink to="/listings">All Homes</NavLink>
         <NavLink to="/addhome">Add Home</NavLink>
         <NavLink to="/login">Log Out</NavLink>
-        
+        <NavLink to="/reviews">Test</NavLink>
     </Menu>
   </div>
 )

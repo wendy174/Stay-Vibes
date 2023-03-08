@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-    rescue_from ActiveRecord::RecordInvalid, with: :invalid
+    rescue_from ActiveRecord::RecordInvalid, with: :app_invalid
+
     include ActionController::Cookies
 
     def hello_world
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::API
 
       private 
       
-    def invalid(error)
+    def app_invalid(error)
         render json: { error: error.message}, status:422
     end
   end
