@@ -10,12 +10,12 @@ rescue_from ActiveRecord::RecordNotFound, with: :host_not_found
     end
 
     def create
-        render json: Host.create(host_params), status: :created  
+        render json: Host.create!(host_params), status: :created  
     end
 
     def update
         hosts = Host.find(params[:id])
-        render json = Host.update(host_params), status: :ok
+        render json = Host.update!(host_params), status: :ok
     end
 
 

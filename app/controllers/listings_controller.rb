@@ -11,12 +11,12 @@ class ListingsController < ApplicationController
     end
 
     def create
-        render json: Listing.create(listing_params), status: :created  
+        render json: Listing.create!(listing_params), status: :created  
     end
 
     def update
         listings = Listing.find(params[:id])
-        render json = listings.update(listing_params), status: :ok
+        render json = listings.update!(listing_params), status: :ok
     end
 
 
@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
 
 
 
-private 
+    private 
 
     def listings_params
         params.permit(:description, :price, :city, :state, :num_bedrooms, :num_bathrooms, :image, :host_id)

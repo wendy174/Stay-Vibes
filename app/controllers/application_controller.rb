@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :app_invalid
+
     include ActionController::Cookies
 
     def hello_world

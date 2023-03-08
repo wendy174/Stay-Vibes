@@ -11,12 +11,12 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        render json: Review.create(review_params), status: :created  
+        render json: Review.create!(review_params), status: :created  
     end
 
     def update
         reviews = Review.find(params[:id])
-        render json = reviews.update(review_params), status: :ok
+        render json = reviews.update!(review_params), status: :ok
     end
 
 
@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
 private 
 
     def review_params
-        params.permit(:description, :price, :city, :state, :num_bedrooms, :num_bathrooms, :image, :host_id)
+        params.permit(:comment, :listing_id, :user_id)
     end
     
     def review_not_found
