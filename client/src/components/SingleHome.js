@@ -3,8 +3,7 @@ import React, {useState} from "react"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Listing from "./Listing";
-import Search from "./Search";
-import Reviews from "./Reviews";
+
 
 export default function Card({ 
     cityState, 
@@ -14,7 +13,6 @@ export default function Card({
     bathrooms, 
     img, 
     favorites,
-    handleClick ,
     setFavorites,
     description,
     reviews}) {
@@ -51,8 +49,9 @@ export default function Card({
         setLike((prevState) => !prevState);
       }
 
-const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)    
-     
+      const renderReviews = reviews && reviews.map((rev) => (
+        <ul key={rev.id}>{rev.comment}</ul>
+      ));
 
   return (
 <>
