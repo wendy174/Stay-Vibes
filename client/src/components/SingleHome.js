@@ -115,7 +115,7 @@ const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)
             {bedrooms} beds
           </Text> - &nbsp;
           <Text as="span" color="gray.50">
-            {bathrooms} bath
+            {bathrooms} baths
           </Text>
             </div>
           {/* <Text as="span" color="gray.50">
