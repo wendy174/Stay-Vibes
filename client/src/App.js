@@ -42,7 +42,6 @@ function App() {
     <ChakraProvider theme={theme}>
       <Layout>
         <ScaleFade initialScale={0.9} in="true">
-          <Navbar />
           <Routes>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
