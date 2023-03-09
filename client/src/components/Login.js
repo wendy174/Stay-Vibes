@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import {
   MDBContainer,
   MDBCol,
@@ -11,21 +12,25 @@ import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate()
+  
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch('/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, password: password }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
-      const data = await response.json();
-      console.log(data);
+
+      if (response.ok) {
+        navigate('/');
+      } else {
+        alert('Invalid email or password.');
+      }
     } catch (error) {
-      console.error(error);
+      alert(`An error occurred: ${error.message}`);
     }
   };
 

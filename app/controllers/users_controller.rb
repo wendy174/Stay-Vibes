@@ -16,8 +16,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        render json: User.create!(user_params), status: :created  
-    end
+        user = User.new(user_params)
+        if user.save
+          render json: user, status: :created
+        else
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
 
     def update
         users = User.find(params[:id])
@@ -36,9 +41,9 @@ class UsersController < ApplicationController
 
 private 
 
-    def user_params
-        params.permit(:name, :user_name, :email)
-    end
+def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
     
     def user_not_found
         render json: { error: "User not found"}, status: :not_found
