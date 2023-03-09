@@ -20,6 +20,7 @@ export default function Favorites({ favorites }) {
             bathrooms={house.bathrooms}
             date={house.date}
             price={house.price}
+            description={house.description}
           />
         ))}
       </SimpleGrid>

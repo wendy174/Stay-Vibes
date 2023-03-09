@@ -28,7 +28,11 @@ class ListingsController < ApplicationController
         head :no_content
     end
 
-
+    def destroy_review
+        review = Review.find(params[:id])
+        review.destroy
+        head :no_content
+      end
 
 
     private 

@@ -1,14 +1,14 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import SingleHome from './SingleHome'
 import Search from './Search';
-import React, {useState, useEffect} from 'react';
 
 
 
-export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch,reviews}) {
+
+export default function Home({setReviews, favorites, setFavorites,homeList,changeSearch, reviews}) {
 console.log(homeList)
 
-
+console.log(reviews)
   return (
     <div>
       <Search changeSearch={changeSearch}/>
@@ -23,26 +23,12 @@ console.log(homeList)
             description={house.description}
             reviews={house.reviews}
             favorites={favorites}
-            setFavorites={setFavorites}/>
+            setFavorites={setFavorites}
+            setReviews={setReviews}/>
           )})}
       </SimpleGrid>
     </div>
   );
 }
 
-
-{/* <SingleHome
-            key={house.id}
-            cityState={house.city}
-            img={house.image}
-            bedrooms={house.num_bedrooms}
-            bathrooms={house.num_bathrooms}
-            date={house.date}
-            price={house.price}
-            description={house.description}
-            favorites={favorites}
-            setFavorites={setFavorites}
-
-            reviews={house.reviews}
-          /> */}
 
