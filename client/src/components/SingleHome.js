@@ -3,6 +3,7 @@ import React, {useState} from "react"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Listing from "./Listing";
+import Form from 'react-bootstrap/Form';
 
 
 export default function Card({ 
@@ -16,7 +17,8 @@ export default function Card({
     setFavorites,
     description,
     reviews,
-    setReviews}) {
+    setReviews,
+    onEditForm}) {
 
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
@@ -77,6 +79,68 @@ export default function Card({
           }
         });
       }
+
+      const [showingForm, setShowingForm] = useState(false)
+
+      const initialFormValues = {
+        comment:""
+      }
+      const [formData, setFormData ] = useState(initialFormValues)
+      const {comment} = formData
+
+      const handleFormData = (e) => {
+        const { name , value } = e.target
+        setFormData({...formData, [name]: value})
+    }
+
+    const handleChange = event => {
+      setFormData(event.target.value);
+    };
+
+      const handleShowForm = () => {
+        setShowingForm(true)
+      }
+      const handleFormSubmit = (e) => {
+        e.preventDefault()
+        setShowingForm(false)
+
+        const requestObj = {
+          method: "PATCH",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+      }
+
+      fetch("http://localhost:3000/reviews", requestObj)
+          .then(response => response.json())
+          .then(modifiedReview => {
+              onEditForm(formData)
+              setFormData(initialFormValues)
+              setShowingForm(false)
+              window.location.reload(false)
+          })
+
+  }
+
+  const form = 
+  <form onSubmit={handleFormSubmit}>
+      <div>
+      <Form.Group className="mb-3">
+          <Form.Label>Review</Form.Label>
+          <Form.Control 
+              type="text" 
+              placeholder="Edit Review"
+              name="review"
+              value={formData.comment}
+              onChange={handleFormData}
+              />
+      </Form.Group>
+      </div>
+      
+      <Button variant="primary" type="submit" style={{backgroundColor: 'primary', textColor: 'white'}}>Done Editing</Button>
+  </form>
+
 
   return (
 <>
@@ -159,7 +223,8 @@ export default function Card({
       </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
-          <Button onClick={handleReviewClick} variant="primary">Reviews</Button>
+          {showingForm ? form : <Button onClick={handleShowForm} style={{backgroundColor: 'primary', textColor: 'white'}}>Edit Reviews</Button>}
+          {/* <Button onClick={handleReviewClick} variant="primary">Edit Reviews</Button> */}
           <Button variant="secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
     </Modal>

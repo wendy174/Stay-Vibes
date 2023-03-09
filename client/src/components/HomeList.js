@@ -5,7 +5,7 @@ import Search from './Search';
 
 
 
-export default function Home({setReviews, favorites, setFavorites,homeList,changeSearch, reviews}) {
+export default function Home({setReviews, favorites, setFavorites,homeList,changeSearch, reviews,onEditForm}) {
 console.log(homeList)
 
 console.log(reviews)
@@ -24,7 +24,8 @@ console.log(reviews)
             reviews={house.reviews}
             favorites={favorites}
             setFavorites={setFavorites}
-            setReviews={setReviews}/>
+            setReviews={setReviews}
+            onEditForm={onEditForm}/>
           )})}
       </SimpleGrid>
     </div>
