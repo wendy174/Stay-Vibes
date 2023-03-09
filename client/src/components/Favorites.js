@@ -1,5 +1,6 @@
 import { Heading, SimpleGrid } from "@chakra-ui/react";
 import SingleHome from './SingleHome'
+import NavBar from "./Navbar";
 
 
 export default function Favorites({ favorites }) {
@@ -7,6 +8,7 @@ export default function Favorites({ favorites }) {
 
   return (
     <div>
+      <NavBar/>
       <Heading as="h2" mb="4">
         My Favorites
       </Heading>

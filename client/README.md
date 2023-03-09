@@ -1,6 +1,6 @@
 # Stay Vibes
 
-This inspiration of this project design was to recreate the famous app Airbnb and utilize our abilities in making an app with React and Rails. This is a fun app to rent and list homes around the country that are unique in their own ways. In the website users will be able to:
+The inspiration of this project design was to recreate the famous app Airbnb and utilize our abilities in making an app with React and Rails. This is a fun app to rent and list homes around the country that are unique in their own ways. In the website users will be able to:
 * Signup with a profile
 * View all the listings, and reviews that are associated with it
 * Delete reviews
@@ -26,7 +26,6 @@ Styling includes React-Bootstrap, Chakra UI, and React-Burger Menu along with so
 Our backend was created with Rails.   
 
 Associations Diagram:
-
 
 
 

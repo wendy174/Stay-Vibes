@@ -1,6 +1,7 @@
 import { SimpleGrid } from "@chakra-ui/react";
 import SingleHome from './SingleHome'
 import Search from './Search';
+import NavBar from "./Navbar";
 
 
 
@@ -8,6 +9,7 @@ import Search from './Search';
 export default function Home({setReviews, favorites, setFavorites,homeList,changeSearch, reviews,onEditForm}) {
   return (
     <div>
+      <NavBar/>
       <Search changeSearch={changeSearch}/>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">
         {homeList.map((house) => {
