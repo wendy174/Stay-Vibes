@@ -22,11 +22,14 @@ class UsersController < ApplicationController
     # when create new user set them in sessions 
     # create and login user at same time 
     def create
-        user = User.create!(user_params), status: :created  
-        session[:user_id] = user.id # login 
-        render json: user, status: :created 
+        user = User.new(user_params)
+        if user.save
+          render json: user, status: :created
+        else
+          render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+        end
+      end
 
-    end
 
     def update
         users = User.find(params[:id])
@@ -46,9 +49,11 @@ class UsersController < ApplicationController
 
 private 
 
-    def user_params
-        params.permit(:name, :user_name, :email, :password) 
-    end
+
+def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
+
     
     def user_not_found
         render json: { error: "User not found"}, status: :not_found

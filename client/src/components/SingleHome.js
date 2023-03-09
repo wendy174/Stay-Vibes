@@ -50,8 +50,9 @@ export default function Card({
         console.log("Added!")
       }
     
-        const fileteredReviews = reviews.map(rev => (rev.comment))
-  console.log(fileteredReviews)
+        //const fileteredReviews = reviews.map(rev => (rev.comment))
+        const filteredReviews = reviews.filter((rev) => rev.cityState === cityState);
+
   return (
 <>
   
@@ -124,7 +125,15 @@ export default function Card({
             {description}
           </Text>
           <Text as="span" color="gray.50">
-          {fileteredReviews.filter(review => review)}
+          {/* {fileteredReviews.filter(review => review)} */}
+          <br>
+          </br>
+          {filteredReviews.map((rev) => (
+  <ul>
+    <br></br>
+    {rev.comment}
+  </ul>
+))}
           </Text>
       </Stack>
       </Modal.Body>
