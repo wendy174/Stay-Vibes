@@ -127,7 +127,7 @@ function handleAddToFavorites() {
 
 
 
-const renderReviews = reviews
+const renderReviews = reviews && reviews
   .filter((rev) => !deletedReviews.includes(rev.id))
   .map((rev) => {
     if (rev.id === edit.id) {
@@ -218,8 +218,8 @@ const renderReviews = reviews
             </Modal.Header>
             <Modal.Body>
               <Image
-                h="225px"
-                w="225px"
+                h="337px"
+                w="full"
                 borderRadius="12px"
                 mb="10px"
                 src={img}
