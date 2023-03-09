@@ -29,7 +29,6 @@ Associations Diagram:
 
 
 
-To set up our database, we used Sinatra.
 
 API Endpoints:
 
