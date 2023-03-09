@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     # only use authorize method on 'sessions#create' 
     # want to authorize when we create a new session 
-    skip_before_action :authorize, only: :create 
+    # skip_before_action :authorize, only: :create 
 
 
 

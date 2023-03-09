@@ -29,9 +29,7 @@ export default function Card({
 
     const handleReviewClick = () => {
      setViewReviews((prev) => !prev);
-     console.log("hello")
     }
-    console.log(date)
        
     function handleClick() {
         setLike((prev) => !prev);

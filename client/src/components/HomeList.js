@@ -21,7 +21,9 @@ console.log(homeList)
             bathrooms={house.num_bathrooms}
             img={house.image}
             description={house.description}
-            reviews={house.reviews}/>
+            reviews={house.reviews}
+            favorites={favorites}
+            setFavorites={setFavorites}/>
           )})}
       </SimpleGrid>
     </div>

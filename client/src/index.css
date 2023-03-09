@@ -67,3 +67,9 @@
   cursor:pointer;
   margin-left:20px;
 }
+
+.review-text {
+  font-weight:bold;
+  color:black;
+  margin-top:20px;
+}

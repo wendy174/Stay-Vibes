@@ -41,11 +41,6 @@ function Login() {
   
     <div className="login-page">
 
-
-    errors.map((error) => {
-       return <p>{error}</p>
-    })
-
       <MDBContainer fluid className="p-3 my-5 h-custom login-form">
         <MDBRow>
           <MDBCol col="10" md="6">
