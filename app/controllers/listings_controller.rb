@@ -18,7 +18,7 @@ class ListingsController < ApplicationController
 
     def update
         listings = Listing.find(params[:id])
-        render json = listings.update!(listing_params), status: :ok
+        render json: listings.update!(listing_params), status: :ok
     end
 
 
@@ -35,11 +35,16 @@ class ListingsController < ApplicationController
       end
 
 
+
     private 
 
     def listings_params
         params.permit(:description, :price, :city, :state, :num_bedrooms, :num_bathrooms, :image, :host_id)
     end
+
+    def review_params
+        params.require(:review).permit(:comment)
+      end
     
     # def listing_not_found
     #     render json: { error: "Listing not found"}, status: :not_found
