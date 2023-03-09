@@ -27,7 +27,7 @@ Our backend was created with Rails.
 
 Associations Diagram:
 
-
+![Associations](https://files.slack.com/files-pri/T02MD9XTF-F04T29R9B70/screen_shot_2023-03-09_at_4.47.17_pm.png)
 
 API Endpoints:
 
