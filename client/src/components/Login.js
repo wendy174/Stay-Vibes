@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 import {
   MDBContainer,
   MDBCol,
@@ -11,27 +12,40 @@ import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate()
+  
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch('/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, password: password }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
-      const data = await response.json();
-      console.log(data);
+
+      if (response.ok) {
+        navigate('/');
+      } else {
+        alert('Invalid email or password.');
+      }
     } catch (error) {
-      console.error(error);
+      alert(`An error occurred: ${error.message}`);
     }
   };
 
-  
+
+
   return (
+
+  
     <div className="login-page">
+
+
+    errors.map((error) => {
+       return <p>{error}</p>
+    })
+
       <MDBContainer fluid className="p-3 my-5 h-custom login-form">
         <MDBRow>
           <MDBCol col="10" md="6">
@@ -73,6 +87,7 @@ function Login() {
                 </p>
               </div>
             </form>
+   
           </MDBCol>
         </MDBRow>
       </MDBContainer>

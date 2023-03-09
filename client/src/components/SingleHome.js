@@ -19,7 +19,6 @@ export default function Card({
     description,
     reviews}) {
 
-
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
     const [viewReviews, setViewReviews] = useState(false)
@@ -56,6 +55,7 @@ export default function Card({
 
 const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)    
      
+
   return (
 <>
   
@@ -132,6 +132,7 @@ const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)
             {renderReviews}
           </Text>
           
+
       </Stack>
       </Modal.Body>
         <Modal.Footer>

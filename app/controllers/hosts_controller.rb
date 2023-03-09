@@ -35,7 +35,7 @@ private
     end
     
     def host_not_found
-        render json: { error: "Host not found"}, status: :not_found
+        
     end
 
 end

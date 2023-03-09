@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :listings
 
 
-  post "/login", to: "sessions#create"
-  get "/me", to: "users#show" # stay login 
-  delete "/logout", to: "sessions#destroy" # log out 
+  post '/signup', to: "users#create"
+  post "/login", to: "sessions#create" #creates a new session
+  delete "/logout", to: "sessions#destroy" # log out, deletes the session
+  get "/me", to: "users#show" # stay login, see what user is currently logged in 
 
 end

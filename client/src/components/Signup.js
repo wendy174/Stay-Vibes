@@ -23,12 +23,11 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-  
     try {
-      const response = await fetch('/signup', {
+      const response = await fetch('/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password}),
+        body: JSON.stringify({ name, email, password }),
       });
   
       if (response.ok) {
@@ -39,7 +38,8 @@ function Signup() {
     } catch (error) {
       alert(`An error occurred: ${error.message}`);
     }
-  }
+  };
+  
 
 
   return (
@@ -90,7 +90,7 @@ function Signup() {
                 />
               </div>
 
-              <MDBBtn className='mb-4' size='lg' onSubmit={handleSubmit}>Register</MDBBtn>   
+              <MDBBtn className='mb-4' size='lg' onClick={handleSubmit}>Register</MDBBtn>   
             </MDBCol>
             <MDBCol md='10' lg='6' className='order-1 order-lg-2 d-flex align-items-center'>
               <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid/>

@@ -17,7 +17,6 @@ function App() {
   const [searchTerm, setSearch] = useState("")
   const [reviews, setReviews] = useState([])
 
-
   const changeSearch = (value) => {
     setSearch(value)
   }
