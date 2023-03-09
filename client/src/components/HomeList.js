@@ -3,90 +3,32 @@ import SingleHome from './SingleHome'
 import Search from './Search';
 
 
-const data = [
-  {
-    cityState: "Tampa, FL",
-    bedrooms: "3",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home2.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-  {
-    cityState: "New York, NY",
-    bedrooms: "2",
-    bathrooms: "2",
-    date: "Mar 13 – 20",
-    price: "213",
-    img: require('./images/home1.avif')
-  },
-]
 
-export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch}) {
+export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch,reviews}) {
+console.log(homeList)
 
   return (
     <div>
       <Search changeSearch={changeSearch}/>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">
-        {homeList.map((house, i) => (
-          <SingleHome
-            key={i}
+        {homeList.map((house) => {
+          return (
+            <SingleHome cityState={house.city}
+            price={house.price}
+            bedrooms={house.num_bedrooms}
+            bathrooms={house.num_bathrooms}
+            img={house.image}
+            description={house.description}
+            reviews={house.reviews}/>
+          )})}
+      </SimpleGrid>
+    </div>
+  );
+}
+
+
+{/* <SingleHome
+            key={house.id}
             cityState={house.city}
             img={house.image}
             bedrooms={house.num_bedrooms}
@@ -96,9 +38,5 @@ export default function Home({ favorites, setFavorites,homeList, setHomeList, ch
             description={house.description}
             favorites={favorites}
             setFavorites={setFavorites}
-          />
-        ))}
-      </SimpleGrid>
-    </div>
-  );
-}
+            reviews={house.reviews}
+          /> */}

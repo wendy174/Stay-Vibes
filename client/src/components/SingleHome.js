@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Listing from "./Listing";
 import Search from "./Search";
+import Reviews from "./Reviews";
 
 export default function Card({ 
     cityState, 
@@ -15,15 +16,23 @@ export default function Card({
     favorites,
     handleClick ,
     setFavorites,
-    description}) {
-    
+    description,
+    reviews}) {
+
+
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
-    const [isReviewOpen, setIsReviewOpen] = useState(false)
+    const [viewReviews, setViewReviews] = useState(false)
 
     const handleClose = () => setShow(false);
+
     const handleShow = () => setShow(true);
-    
+
+    const handleReviewClick = () => {
+     setViewReviews((prev) => !prev);
+     console.log("hello")
+    }
+    console.log(date)
        
     function handleClick() {
         setLike((prev) => !prev);
@@ -45,11 +54,8 @@ export default function Card({
         setLike((prevState) => !prevState);
       }
 
-      const viewReviews = () => {
-        console.log("Added!")
-      }
-    
-        
+const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)    
+     
   return (
 <>
   
@@ -62,6 +68,7 @@ export default function Card({
    bedrooms={bedrooms}
    bathrooms={bathrooms}
    date={date}
+   reviews={reviews}
 
     />
     <Box w="full" >
@@ -111,9 +118,9 @@ export default function Card({
             {bathrooms} bath
           </Text>
             </div>
-          <Text as="span" color="gray.50">
+          {/* <Text as="span" color="gray.50">
             {date}
-          </Text>
+          </Text> */}
         </Flex>
           <div className='empty' onClick={handleClick}>
           {like? '♥':'♡'}
@@ -121,12 +128,16 @@ export default function Card({
           <Text as="span" color="gray.50">
             {description}
           </Text>
+          <Text as="span" color="gray.50">
+            {renderReviews}
+          </Text>
+          
       </Stack>
       </Modal.Body>
         <Modal.Footer>
         <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
 
-          <Button onClick={viewReviews} variant="primary">Reviews</Button>
+          <Button onClick={handleReviewClick} variant="primary">Reviews</Button>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>
     </Modal>
