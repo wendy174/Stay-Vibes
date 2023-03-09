@@ -134,7 +134,7 @@ export default function Card({
               name="review"
               value={formData.comment}
               onChange={handleFormData}
-              required/>
+              />
       </Form.Group>
       </div>
       
