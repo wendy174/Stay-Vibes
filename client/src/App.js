@@ -28,6 +28,11 @@ function App() {
       setHomeList(data)
     })
   }, [])
+
+  const onEditForm = modifiedForm => {
+    const updatedReview = reviews.map(review => reviews.id === 1 ? modifiedForm : review)
+    setReviews(updatedReview)
+  }
   
 
 
@@ -49,6 +54,7 @@ function App() {
             homeList={filteredHomes}
             setHomeList={setHomeList}
             reviews={reviews}
+            onEditForm={onEditForm}
             setReviews={setReviews}
             />} />
             <Route path="/favorites" element={<Favorites 
