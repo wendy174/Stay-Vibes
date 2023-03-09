@@ -110,9 +110,9 @@ const renderReviews = reviews.map((rev) => <ul>{rev.comment}</ul>)
         </Flex>
         <Flex justifyContent="space-between">
             <div>
-
+    
           <Text as="span" color="gray.50">
-            {bedrooms} bed
+            {bedrooms} beds
           </Text> - &nbsp;
           <Text as="span" color="gray.50">
             {bathrooms} bath
