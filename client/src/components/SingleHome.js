@@ -195,60 +195,31 @@ const renderReviews = reviews
 
 
   return (
-
-<>
-  
-    <div id='card'>
-    <Listing 
-   handleShow={handleShow}
-   img={img}
-   cityState={cityState}
-   price={price}
-   bedrooms={bedrooms}
-   bathrooms={bathrooms}
-   date={date}
-   reviews={reviews}
-
-    />
-    <Box w="full" >
-    <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title> Listing details</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-      <Image
-        h="200px"
-        w="200px"
-        borderRadius="12px"
-        mb="10px"
-        src={img}
-        alt="A house"
-        fontSize="16px"
-        objectFit="cover"
-      />
-        
-      <Stack spacing="0" >
-        <Flex justifyContent="space-between">
-          <Heading
-            as="h2"
-            fontWeight="bold"
-            color="gray.100"
-            fontSize="16px"
-            isTruncated
-
-          >
+    <>
+      <div id="card">
+        <Listing
+          handleShow={handleShow}
+          img={img}
+          cityState={cityState}
+          price={price}
+          bedrooms={bedrooms}
+          bathrooms={bathrooms}
+          date={date}
+          reviews={reviews}
+        />
+        <Box w="full">
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false} >
             <Modal.Header closeButton>
               <Modal.Title> Listing details</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Image
-                h="337px"
-                w="full"
+                h="225px"
+                w="225px"
                 borderRadius="12px"
                 mb="10px"
                 src={img}
@@ -256,7 +227,6 @@ const renderReviews = reviews
                 fontSize="16px"
                 objectFit="cover"
               />
-
               <Stack spacing="0">
                 <Flex justifyContent="space-between">
                   <Heading
@@ -265,26 +235,23 @@ const renderReviews = reviews
                     color="gray.100"
                     fontSize="16px"
                     isTruncated
-                  >
-                    {cityState}
-                  </Heading>
-                  <Text as="span" color="gray.100" ml="4">
-                    ${price}/night
-                  </Text>
-                </Flex>
-                <Flex justifyContent="space-between">
-                  <div>
-                    <Text as="span" color="gray.50">
-                      {bedrooms} beds
-                    </Text>{" "}
-                    - &nbsp;
-                    <Text as="span" color="gray.50">
-                      {bathrooms} baths
+                    >
+                      {cityState}
+                    </Heading>
+                    <Text as="span" color="gray.100" ml="4">
+                      ${price}/night
                     </Text>
-                  </div>
-                  {/* <Text as="span" color="gray.50">
-            {date}
-          </Text> */}
+                  </Flex>
+                  <Flex justifyContent="space-between">
+                    <div>
+                      <Text as="span" color="gray.50">
+                        {bedrooms} beds
+                      </Text>{" "}
+                      - &nbsp;
+                      <Text as="span" color="gray.50">
+                        {bathrooms} baths
+                      </Text>
+                    </div>
                 </Flex>
                 <div className="empty" onClick={handleClick}>
                   {like ? "♥" : "♡"}
@@ -304,7 +271,7 @@ const renderReviews = reviews
               {/* <Button onClick={handleReviewClick} variant="primary">Edit Reviews</Button> */}
               <Button variant="secondary" onClick={handleClose}>
                 Close
-              </Button>
+                </Button>
             </Modal.Footer>
           </Modal>
         </Box>

@@ -7,8 +7,8 @@ export default function Listing({handleShow, img, cityState, bedrooms, bathrooms
     <div>
         <button variant="primary" onClick={handleShow}>
     <Image
-        h="352px"
-        w="322px"
+        h="350px"
+        w="325px"
         borderRadius="12px"
         mb="10px"
         src={img}
