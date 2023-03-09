@@ -8,6 +8,7 @@ import theme from './theme'
 import { ChakraProvider, ScaleFade } from "@chakra-ui/react"
 import Favorites from './components/Favorites'
 import Reviews from "./components/Reviews";
+
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
   const [homeList, setHomeList] = useState([])
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearch] = useState("")
-  const [reviews, setReviews] = useState([])
 
   const changeSearch = (value) => {
     setSearch(value)
@@ -28,7 +28,7 @@ function App() {
       setHomeList(data)
     })
   }, [])
-  
+
 
 
   const filteredHomes = homeList.filter(home => home.city.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -48,13 +48,12 @@ function App() {
             changeSearch={changeSearch}
             homeList={filteredHomes}
             setHomeList={setHomeList}
-            reviews={reviews}
             />} />
             <Route path="/favorites" element={<Favorites 
             favorites={favorites} 
             setFavorites={setFavorites} 
             />} />
-            <Route path="/reviews" element={<Reviews reviews={reviews} />} />
+            <Route path="/reviews" element={<Reviews />} />
           </Routes>
         </ScaleFade>
       </Layout>
