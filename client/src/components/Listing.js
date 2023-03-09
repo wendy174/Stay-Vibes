@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
 
 
-export default function Listing({handleShow, img, cityState, bedrooms, bathrooms, date, price,reviewsList}) {
+export default function Listing({handleShow, img, cityState, bedrooms, bathrooms, date, price}) {
   return (
     <div>
         <button variant="primary" onClick={handleShow}>
@@ -43,9 +43,6 @@ export default function Listing({handleShow, img, cityState, bedrooms, bathrooms
             </div>
           <Text as="span" color="gray.50">
             {date}
-          </Text>
-          <Text as="span" color="gray.50">
-            {reviewsList}
           </Text>
         </Flex>
           {/* <div className='empty-heart' onClick={handleClick}>

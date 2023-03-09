@@ -25,10 +25,12 @@ return (
 
     <Menu right > 
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/me">Profile</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
-        <NavLink to="/">All Homes</NavLink>
+        <NavLink to="/listings">All Homes</NavLink>
         <NavLink to="/addhome">Add Home</NavLink>
         <NavLink to="/login">Log Out</NavLink>
+        <NavLink to="/reviews">Test</NavLink>
     </Menu>
   </div>
 )
