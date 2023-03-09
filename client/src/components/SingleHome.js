@@ -15,11 +15,13 @@ export default function Card({
     favorites,
     setFavorites,
     description,
-    reviews}) {
+    reviews,
+    setReviews}) {
 
     const [like, setLike] = useState(false)
     const [show, setShow] = useState(false)
     const [viewReviews, setViewReviews] = useState(false)
+    const [deletedReviews, setDeletedReviews] = useState([]);
 
     const handleClose = () => setShow(false);
 
@@ -43,15 +45,38 @@ export default function Card({
             bedrooms: bedrooms,
             bathrooms: bathrooms,
             img: img,
+            description: description
           };
           setFavorites([...favorites, newFavorite]);
         }
         setLike((prevState) => !prevState);
       }
-
-      const renderReviews = reviews && reviews.map((rev) => (
-        <ul key={rev.id}>{rev.comment}</ul>
-      ));
+      const renderReviews = reviews && reviews
+      .filter(rev => !deletedReviews.includes(rev.id))
+      .map((rev) => {
+        return (
+          <div key={rev.id}>
+            <ul>
+            <div className="review-text">Reviews</div>
+             {rev.comment}
+              <Button onClick={() => handleDelete(rev.id)} className='deleteBtn'>Delete</Button>
+            </ul>
+          </div>
+        );
+      });
+      
+      function handleDelete(reviewId) {
+        fetch(`/api/reviews/${reviewId}`, {
+          method: 'DELETE'
+        }).then(response => {
+          if (response.ok) {
+            // remove the deleted review from the reviews state
+            const updatedReviews = reviews.filter(rev => rev.id !== reviewId);
+            setReviews(updatedReviews);
+            setDeletedReviews([...deletedReviews, reviewId]);
+          }
+        });
+      }
 
   return (
 <>
@@ -126,15 +151,14 @@ export default function Card({
             {description}
           </Text>
           <Text as="span" color="gray.50">
-            {renderReviews}
+            {renderReviews} 
           </Text>
           
 
       </Stack>
       </Modal.Body>
         <Modal.Footer>
-        <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
-
+          <Button variant="primary" onClick={handleAddToFavorites}>Add to favorites</Button>
           <Button onClick={handleReviewClick} variant="primary">Reviews</Button>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
         </Modal.Footer>

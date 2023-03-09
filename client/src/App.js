@@ -49,12 +49,13 @@ function App() {
             homeList={filteredHomes}
             setHomeList={setHomeList}
             reviews={reviews}
+            setReviews={setReviews}
             />} />
             <Route path="/favorites" element={<Favorites 
             favorites={favorites} 
             setFavorites={setFavorites} 
             />} />
-            <Route path="/reviews" element={<Reviews reviews={reviews} />} />
+            <Route path="/reviews" element={<Reviews reviews={reviews} setReviews={setReviews} />} />
           </Routes>
         </ScaleFade>
       </Layout>
