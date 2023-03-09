@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Stay Vibes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This inspiration of this project design was to recreate the famous app Airbnb and utilize our abilities in making an app with React and Rails. This is a fun app to rent and list homes around the country that are unique in their own ways. In the website users will be able to:
+* Signup with a profile
+* View all the listings, and reviews that are associated with it
+* Delete reviews
+* Save homes they favorite to a "favorites" page
+* Edit their reviews
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+### Frontend
 
-### `npm start`
+Using React, Stay Vibes is a single-page application and App.js as the main parent component
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React Component Tree:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To create the multi-page single-app , we implemented React router.  Redirections were done with the ```useNavigate``` hook.
 
-### `npm run build`
+Styling includes React-Bootstrap, Chakra UI, and React-Burger Menu along with some custom CSS.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Our backend was created with Rails.   
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Associations Diagram:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To set up our database, we used Sinatra.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+API Endpoints:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Get Started running the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To use our app, first go into the frontend client.  Then, run ```npm install && npm start```.
 
-### Analyzing the Bundle Size
+```
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To set up the backend, run the following commands on another terminal
+```
+bundle install
+```
 
-### Making a Progressive Web App
+```
+rails server
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## How Stay Vibes Works
 
-### Advanced Configuration
+When users first go to the website, they reach a login page, which also has a signup page if the user does not have an account yet. When login/signup is successful (passes all validations), they are redirected to the main page HomeList.js.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### ```Login.js```
 
-### Deployment
+The Login component includes a form to enter the user's username and password.  When the form is submitted, the username and password are compared to the users localhost:3000/users database.  If a match is found, the user is redirected to the homepage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### ```Signup.js```
 
-### `npm run build` fails to minify
+The Signup component includes a form with all of the signup fields, including name, username, email, password.  When the form is submitted,it is checked if all the validations are passed and then POST to localhost:3000/users database.  If the validations aren't passed, an alert would let the user know that it isn't a valid SignUp.  Once a successful signup form is submitted, the user is redirected to HomeList.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### ```HomeList.js```
+
+This component act's as the Stay Vibes' homepage.  All homes posted by all hosts are displayed here.  Each home includes functionality to view the home's Description, Num of Beds, Num of Baths, Reviews, Price per night and the City and State it is located in. The user is also able to edit and delete the reviews that are associated with the Listing they viewed through the SingleHome.js component
+### ```Favorites.js```
+
+This component includes all of the listings that a user has added to favorites.  This component also allows users to view, delete, and update the reviews,
+
+
+### ```SingleHome.js```
+
+This component displays the listing's description, image, price per night, number of bed & baths, and the location. It is also where the functionality to edit and delete comments are written.  When each listing is clicked, the details are shown.  It also features the "addToFavorites" function in the card.
+
+
+### ```NavBar.js```
+
+This contains routes to the different pages of the website. It is made with the "React-Burger-Menu" that was installed through npm to show the current effects of the sidebar
+
