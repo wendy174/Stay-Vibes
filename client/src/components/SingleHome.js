@@ -195,24 +195,52 @@ const renderReviews = reviews
 
 
   return (
-    <>
-      <div id="card">
-        <Listing
-          handleShow={handleShow}
-          img={img}
-          cityState={cityState}
-          price={price}
-          bedrooms={bedrooms}
-          bathrooms={bathrooms}
-          date={date}
-          reviews={reviews}
-        />
-        <Box w="full">
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
+
+<>
+  
+    <div id='card'>
+    <Listing 
+   handleShow={handleShow}
+   img={img}
+   cityState={cityState}
+   price={price}
+   bedrooms={bedrooms}
+   bathrooms={bathrooms}
+   date={date}
+   reviews={reviews}
+
+    />
+    <Box w="full" >
+    <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title> Listing details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+      <Image
+        h="200px"
+        w="200px"
+        borderRadius="12px"
+        mb="10px"
+        src={img}
+        alt="A house"
+        fontSize="16px"
+        objectFit="cover"
+      />
+        
+      <Stack spacing="0" >
+        <Flex justifyContent="space-between">
+          <Heading
+            as="h2"
+            fontWeight="bold"
+            color="gray.100"
+            fontSize="16px"
+            isTruncated
+
           >
             <Modal.Header closeButton>
               <Modal.Title> Listing details</Modal.Title>
