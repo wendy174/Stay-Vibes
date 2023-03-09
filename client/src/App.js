@@ -29,11 +29,11 @@ function App() {
     })
   }, [])
 
-  const onEditForm = modifiedForm => {
-    const updatedReview = reviews.map(review => reviews.id === 1 ? modifiedForm : review)
-    setReviews(updatedReview)
-  }
   
+  const onEditForm = updatedReview => {
+    const updatedReviews = reviews.map(review => review.id === updatedReview.id ? updatedReview : review)
+    setReviews(updatedReviews)
+  }
 
 
   const filteredHomes = homeList.filter(home => home.city.toLowerCase().includes(searchTerm.toLowerCase()))

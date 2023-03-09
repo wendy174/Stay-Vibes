@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :listings
 
   delete '/api/reviews/:id', to: 'listings#destroy_review'
+  
+  patch '/api/reviews/:id', to: 'reviews#update_review'
 
   post '/signup', to: "users#create"
   post "/login", to: "sessions#create" #creates a new session
