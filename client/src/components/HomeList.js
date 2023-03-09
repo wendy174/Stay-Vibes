@@ -5,25 +5,32 @@ import React, {useState, useEffect} from 'react';
 
 
 
-export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch}) {
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(()=> {
-    fetch("http://localhost:3000/reviews")
-    .then(r => r.json())
-    .then(data => {
-      setReviews(data)
-    })
-  }, [])
+export default function Home({ favorites, setFavorites,homeList, setHomeList, changeSearch,reviews}) {
+console.log(homeList)
 
 
   return (
     <div>
       <Search changeSearch={changeSearch}/>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">
-        {homeList.map((house, i) => (
-          <SingleHome
-            key={i}
+        {homeList.map((house) => {
+          return (
+            <SingleHome cityState={house.city}
+            price={house.price}
+            bedrooms={house.num_bedrooms}
+            bathrooms={house.num_bathrooms}
+            img={house.image}
+            description={house.description}
+            reviews={house.reviews}/>
+          )})}
+      </SimpleGrid>
+    </div>
+  );
+}
+
+
+{/* <SingleHome
+            key={house.id}
             cityState={house.city}
             img={house.image}
             bedrooms={house.num_bedrooms}
@@ -33,10 +40,7 @@ export default function Home({ favorites, setFavorites,homeList, setHomeList, ch
             description={house.description}
             favorites={favorites}
             setFavorites={setFavorites}
-            reviews={reviews}
-          />
-        ))}
-      </SimpleGrid>
-    </div>
-  );
-}
+
+            reviews={house.reviews}
+          /> */}
+
