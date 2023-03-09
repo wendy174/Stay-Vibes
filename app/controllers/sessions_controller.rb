@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+    # only use authorize method on 'sessions#create' 
+    # want to authorize when we create a new session 
+    skip_before_action :authorize, only: :create 
+
+
 
     def create
         user = User.find_by(email: user_params[:email])
@@ -11,13 +16,16 @@ class SessionsController < ApplicationController
       end
 
 
-    def destroy # will clear username of session 
+
+    def destroy # will clear username out of session 
         session.delete :user_id
         head :no_content
     end
+
     private
 
   def user_params
     params.require(:session).permit(:email, :password)
   end
+
 end
