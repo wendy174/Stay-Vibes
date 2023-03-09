@@ -169,8 +169,8 @@ export default function Card({
         </Modal.Header>
         <Modal.Body>
       <Image
-        h="337px"
-        w="full"
+        h="200px"
+        w="200px"
         borderRadius="12px"
         mb="10px"
         src={img}
