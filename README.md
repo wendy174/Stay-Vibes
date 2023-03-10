@@ -27,7 +27,7 @@ Our backend was created with Rails.
 
 Associations Diagram:
 
-![Associations](client/src/components/images/associations.png)
+![Association](client/src/components/images/associations.png)
 
 API Endpoints:
 
