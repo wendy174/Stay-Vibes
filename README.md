@@ -15,7 +15,7 @@ Using React, Stay Vibes is a single-page application and App.js as the main pare
 
 React Component Tree:
 
-
+![Component Tree](client/src/components/images/reacttree.PNG)
 
 To create the multi-page single-app , we implemented React router.  Redirections were done with the ```useNavigate``` hook.
 
@@ -27,12 +27,12 @@ Our backend was created with Rails.
 
 Associations Diagram:
 
-![Associations](https://files.slack.com/files-pri/T02MD9XTF-F04T29R9B70/screen_shot_2023-03-09_at_4.47.17_pm.png)
+![Association](client/src/components/images/associations.png)
 
 API Endpoints:
 
 
-
+![Endpoints](client/src/components/images/Endpoints.PNG)
 
 
 ## Get Started running the app
