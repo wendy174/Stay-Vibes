@@ -4,11 +4,9 @@ import Search from './Search';
 import NavBar from "./Navbar";
 
 
-
-
 export default function Home({setReviews, favorites, setFavorites,homeList,changeSearch, reviews,onEditForm}) {
   return (
-    <div>
+    <div className='content'>
       <NavBar/>
       <Search changeSearch={changeSearch}/>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">

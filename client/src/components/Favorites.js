@@ -9,8 +9,9 @@ export default function Favorites({ favorites }) {
   return (
     <div>
       <NavBar/>
+      <div  className="favoriteHouse">
       <Heading as="h2" mb="4">
-        My Favorites
+        Favorite Listings
       </Heading>
       <SimpleGrid minChildWidth="300px" spacing="10" minH="full">
         {favorites.map((house, i) => (
@@ -23,9 +24,11 @@ export default function Favorites({ favorites }) {
             date={house.date}
             price={house.price}
             description={house.description}
+           
           />
         ))}
       </SimpleGrid>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import theme from './theme'
 import { ChakraProvider, ScaleFade } from "@chakra-ui/react"
 import Favorites from './components/Favorites'
 import Reviews from "./components/Reviews";
-import Navbar from "./components/Navbar";
+
 
 function App() {
 

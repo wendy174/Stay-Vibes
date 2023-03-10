@@ -7,8 +7,6 @@
   top: 20px;
   z-index: 10;
 }
-
-
 .bm-burger-bars {
   background: rgb(23, 91, 54);
   z-index: 10;
@@ -16,13 +14,9 @@
 .bm-cross {
   background: #000000;
 }
-
-
-
 .bm-burger-bars-hover {
   background: #0aac50;
 }
-
 
 .bm-menu {
   background: #0aac50;
@@ -30,8 +24,6 @@
   font-size: 1.15em;
   width: 750px
 }
-
-
 .header {
   padding:10;
 }
@@ -62,7 +54,7 @@
   margin: 0;
 }
 .logo {
-  width:250px;
+  width:170px;
   align-items: center;
   cursor:pointer;
   margin-left:20px;
@@ -74,6 +66,34 @@
   margin-top:20px;
 }
 .deleteBtn {
-  height:35px;
+  background-color: rgb(86, 85, 85);
+  border-radius:5px;
+  padding:6px;
+  color:white;
+  font-weight: bold;
   margin-left:10px;
+}
+.content {
+  margin-left:50px;
+}
+.deleteBtn1 {
+  background-color: red;
+  border-radius:5px;
+  padding:6px;
+  color:white;
+  font-weight: bold;
+  margin-left:10px;
+}
+.navlinks {
+  margin:10px;
+}
+.navlinks:hover {
+  width:100px;
+  padding:3px;
+  border-radius:5px;
+  color:white;
+}
+.favoriteHouse {
+  margin-left:40px;
+  margin-top:20px;
 }

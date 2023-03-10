@@ -1,5 +1,5 @@
 import { Box, Image, Heading, Text, Flex, Stack } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Listing from "./Listing";
@@ -27,8 +27,6 @@ export default function Card({
   const [show, setShow] = useState(false);
   const [deletedReviews, setDeletedReviews] = useState([]);
   const [showingForm, setShowingForm] = useState(false); 
-
-
 
 
   const [edit, setEdit] = useState({
@@ -135,20 +133,20 @@ const renderReviews = reviews && reviews
       return (
         <div key={rev.id}>
           <ul>
-            <div className="review-text">Reviews</div>
+            <div className="review-text"></div>
             {edit.comment}
-            <Button
+            <button
               onClick={() => handleDelete(rev.id)}
-              className="deleteBtn"
+              className="deleteBtn1"
             >
               Delete
-            </Button>
+            </button>
             {showingForm ? (
               form
             ) : (
-              <Button variant="secondary" onClick={() => handleShowForm(rev.id)}>
+              <button variant="secondary" className='deleteBtn' onClick={() => handleShowForm(rev.id)}>
                 Edit
-              </Button>
+              </button>
             )}
           </ul>
         </div>
@@ -158,20 +156,20 @@ const renderReviews = reviews && reviews
       return (
         <div key={rev.id}>
           <ul>
-            <div className="review-text">Reviews</div>
+          <div ></div>
             {rev.comment}
-            <Button
+            <button
               onClick={() => handleDelete(rev.id)}
-              className="deleteBtn"
+              className="deleteBtn1"
             >
               Delete
-            </Button>
+            </button>
             {showingForm ? (
               form
             ) : (
-              <Button variant="secondary" onClick={() => handleShowForm(rev.id)}>
+              <button variant="secondary" className='deleteBtn' onClick={() => handleShowForm(rev.id)}>
                 Edit
-              </Button>
+              </button>
             )}
           </ul>
         </div>
@@ -256,10 +254,12 @@ const renderReviews = reviews && reviews
                 <div className="empty" onClick={handleClick}>
                   {like ? "♥" : "♡"}
                 </div>
+                <br/>
                 <Text as="span" color="gray.50">
                   {description}
                 </Text>
                 <Text as="span" color="gray.50">
+                  <div className="review-text">Reviews</div>
                   {renderReviews}
                 </Text>
               </Stack>

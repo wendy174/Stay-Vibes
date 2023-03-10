@@ -2,9 +2,8 @@ import { React, useState } from 'react'
 import { stack as Menu } from 'react-burger-menu'
 import { NavLink, useNavigate } from 'react-router-dom';
 import "../index.css"
-import Search from './Search';
-import Logo from './images/Logo.png'
-import Button from 'react-bootstrap/esm/Button';
+import Logo from './images/Logo2.png'
+
 
 export default function NavBar() {
   const [menuState, setMenuState] = useState(false)
@@ -32,13 +31,12 @@ return (
       <img className='logo' src={Logo} alt='logo' onClick={handleOpen}/>
     </div>
 
-    <Menu right > 
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/favorites">Favorites</NavLink>
-        <NavLink to="/">All Homes</NavLink>
+    <Menu right> 
+        <NavLink to="/" className='navlinks'>Home</NavLink>
+        <NavLink to="/favorites" className='navlinks'>Favorites</NavLink>
+        <NavLink to="/" className='navlinks'>All Homes</NavLink>
         {/* <NavLink to="/addhome">Add Home</NavLink> */}
-        <NavLink onClick={handleLogout} to="/login">Log Out</NavLink>
-       
+        <NavLink onClick={handleLogout} to="/login"><button className='deleteBtn'>Log Out</button></NavLink>  
     </Menu>
   </div>
 )
