@@ -37,13 +37,16 @@ API Endpoints:
 
 ## Get Started running the app
 
-To use our app, first go into the frontend client.  Then, run ```npm install && npm start```.
+To use our app, first go into the client.  Then, run ```npm install && npm start```.
 
 ```
 npm install
 npm start
 ```
 
+
+
+rails db:create db:migrate db:seed 
 To set up the backend, run the following commands on another terminal
 ```
 bundle install
