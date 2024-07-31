@@ -8,14 +8,13 @@ The inspiration behind this project was to recreate the renowned Airbnb app and 
 * Save their favorite homes to a "favorites" page
 * Edit their reviews
 
-## Built With
+## Built With:
 * React 
 * Ruby on Rails 
 * Bootstrap
 * Chakra UI
 * Postgres 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Getting Started 
@@ -31,7 +30,7 @@ API Endpoints:
 
 ## Getting Started
 
-Clone the repo
+Clone the repo:
    ```sh
    git clone https://github.com/wendy174/Stay-Vibes.git
    ```
@@ -59,6 +58,7 @@ npm start
 
 
 ## Authors: 
+
  * Wendy Yeung:  https://github.com/wendy174
  * Klajdo Qasolli: https://github.com/KlajdoQ
  * Walter Clark: https://github.com/Waltl33
@@ -77,4 +77,3 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
