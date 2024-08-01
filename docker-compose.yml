@@ -6,6 +6,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment: 
       POSTGRES_PASSWORD: password
+
     
 
   backend: 
@@ -17,8 +18,10 @@ services:
     volumes:
       - .:/STAY-VIBES
     environment:
-      - DB_HOST=db  # Setting the database host to the service name 'db'
+      - DB_HOST=db
       - RACK_ENV=development
+    depends_on: 
+      - db
 
 
   frontend:
