@@ -1,0 +1,36 @@
+services: 
+
+  db: 
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment: 
+      POSTGRES_PASSWORD: password
+    
+
+  backend: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9292:9292"
+    volumes:
+      - .:/STAY-VIBES
+    environment:
+      - DB_HOST=db  # Setting the database host to the service name 'db'
+      - RACK_ENV=development
+
+
+  frontend:
+      build: 
+        context: client
+        dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+      volumes: 
+        - ./client:/client
+      environment:
+          - NODE_ENV=development
+
+    
+
