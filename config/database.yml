@@ -10,6 +10,9 @@ development:
   <<: *default
   host: <%= ENV['DB_HOST'] || 'localhost' %>
   database: stay_vibe_development
+  username: postgres
+  password: password 
+
   
 test:
   <<: *default
