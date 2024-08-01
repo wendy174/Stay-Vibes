@@ -22,7 +22,7 @@ function App() {
   }
 
   useEffect(()=> {
-    fetch("http://localhost:3000/listings")
+    fetch("http://localhost:9292/listings")
     .then(r => r.json())
     .then(data => {
       setHomeList(data)
