@@ -63,7 +63,7 @@ def user_params
         render json: { error: error.message}, status:422
     end
     def set_access_control_headers
-      headers['Access-Control-Allow-Origin'] = 'http://localhost:4000'
+      headers['Access-Control-Allow-Origin'] = '*'
       headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
       headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
   end
