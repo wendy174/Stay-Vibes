@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   #  skip_before_action :authorize, only: [:create, :show ]
     rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
-    before_action :set_access_control_headers
+    # before_action :set_access_control_headers
 
     def index 
         users = User.all 
@@ -62,9 +62,9 @@ def user_params
     def invalid(error)
         render json: { error: error.message}, status:422
     end
-    def set_access_control_headers
-      headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
-      headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
-  end
+  #   def set_access_control_headers
+  #     headers['Access-Control-Allow-Origin'] = '*'
+  #     headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+  #     headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+  # end
 end

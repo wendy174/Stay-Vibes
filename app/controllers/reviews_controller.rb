@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :review_not_found
-    before_action :set_access_control_headers
+    # before_action :set_access_control_headers
 
     def index 
         reviews = Review.all 
@@ -45,11 +45,11 @@ private
         render json: { error: "Review not found"}, status: :not_found
     end
 
-    def set_access_control_headers
-        headers['Access-Control-Allow-Origin'] = '*'
-        headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
-        headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
-    end
+    # def set_access_control_headers
+    #     headers['Access-Control-Allow-Origin'] = '*'
+    #     headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+    #     headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+    # end
 
 
 end
