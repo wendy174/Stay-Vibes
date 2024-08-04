@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:latest
 
 WORKDIR /client
 
@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm install
 
 # add app
-COPY . ./
+COPY . .
 ENV NODE_ENV development
 EXPOSE 3000
 
