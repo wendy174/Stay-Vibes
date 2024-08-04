@@ -1,4 +1,4 @@
-# Stay Vibes
+# Stay Vibes 🏖️ 😎 🍹 👙
 ## About The Project
 The inspiration behind this project was to recreate the renowned Airbnb app and leverage our skills in developing an application using React and Rails. This app provides a fun platform for renting and listing unique homes across the country. On the website, users will be able to:
 
@@ -15,8 +15,6 @@ The inspiration behind this project was to recreate the renowned Airbnb app and 
 * Chakra UI
 * Postgres 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## Getting Started 
 
@@ -24,9 +22,20 @@ Associations Diagram:
 
 ![Association](client/src/components/images/associations.png)
 
-API Endpoints:
 
-![Endpoints](client/src/components/images/Endpoints.PNG)
+## Docker 
+
+If you have Docker installed, you can run this application with a single command. 
+If you don't have docker, continue to backend and frontend setup. 
+
+```console
+$ docker compose up --build 
+```
+Run database migrations and seed data. You only need to do this once when setting up the application. 
+
+```console
+$  docker-compose run backend rake db:create db:migrate db:seed
+```
 
 
 ## Getting Started
@@ -43,9 +52,7 @@ Install the dependencies, create a database, migrate, seed your file, then start
 
 ```console
 $ bundle install 
-$ rails db:create 
-$ rails db:migrate 
-$ rails db:seed
+$ rails db:create db:migrate db:seed 
 $ rails server
 ```
 
@@ -53,8 +60,7 @@ $ rails server
 
 In another terminal run these commands to setup the frontend. 
 ```
-npm install
-npm start
+npm install && npm start
 ```
 
 
@@ -76,5 +82,3 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
