@@ -25,7 +25,7 @@ Listing.create!(
     state: Faker::Address.state, 
     num_bedrooms: Faker::Number.between(from: 1, to: 10),
     num_bathrooms: Faker::Number.between(from: 1, to: 5), 
-    image: "https://a0.muscache.com/im/pictures/miso/Hosting-688467833380191508/original/669cb91d-c008-47fd-bc3b-4d8338f0265c.jpeg?im_w=960", 
+    image: "https://www.bhg.com/thmb/S49uNBR-pqBdX5A-9mVAo7eRX-c=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cottage-home-brick-gate-shrubbery-7e117ecd-f5e2829db0d5485a8f092c274e310fa0.jpg", 
     host_id: Host.all().sample().id 
     )
 
